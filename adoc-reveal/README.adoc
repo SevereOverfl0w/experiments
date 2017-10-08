@@ -1,0 +1,38 @@
+= All-in-one Reveal.js & Asciidoctor builder
+
+A live reloading, auto-building asciidoctor -> reveal.js pipeline. Designed to
+be no-fuss.
+
+== Get it
+
+[source, bash]
+----
+$ git clone https://github.com/SevereOverfl0w/experiments.git
+$ cd experiments/adoc-reveal
+----
+
+== Setup
+
+[source, bash]
+----
+$ npm install
+----
+
+== Use it
+
+This will start a http server on port 8080, and will open your browser to the
+correct port.
+
+1. Start the watcher & http server
++
+[source, bash]
+----
+$ npm start
+----
+2. Copy the example
++
+[source, bash]
+----
+$ cp docs/presentation.adoc docs/my-next-big-thing.adoc
+----
+3. Update your new document, and see it reload live in the browser

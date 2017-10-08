@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "scripts/serve.js docs out"
+  },
+  "dependencies": {
+    "asciidoctor-reveal.js": "^1.0.4",
+    "asciidoctor.js": "^1.5.5-5",
+    "chokidar": "^1.7.0",
+    "live-server": "^1.2.0"
+  }
+}
