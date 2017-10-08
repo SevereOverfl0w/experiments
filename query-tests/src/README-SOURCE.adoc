@@ -1,0 +1,11 @@
+= My Cool New Project
+:source-highlighter: coderay
+
+You can do addition with it, look:
+
+[source, clojure]
+----
+include::cljtest://myproject.test.sample/some-test[]
+----
+
+I mean, look at that funky addition!

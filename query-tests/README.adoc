@@ -1,0 +1,61 @@
+= Asciidoctor clojure test result inclusion
+:source-highlighter: coderay
+
+A little utility to enable including clojure test results into produced
+documents.
+
+== Usage
+
+Create some clojure.tests as normal, but add the metadata `:document-me` to
+enable collection of the results:
+
+[source,clojure]
+----
+(ns myproject.test.sample
+  (:require [clojure.test :as t]))
+
+(t/deftest ^:document-me
+  some-test
+  (t/is (= 4 (+ 2 3)))
+  (t/is (= 4 (+ 2 2))))
+----
+
+The above tests will create output like:
+
+[source,clojure]
+----
+=> (+ 2 3) ;; Doesn't produce:
+4
+
+=> (+ 2 2)
+4
+----
+
+=== With asciidoctor
+
+You can then create asciidoctor files in the `src` directory, which can utilize
+these test results.
+
+To collect the results of a test, use the uri-like notation `cljtest://`
+followed by the var without `#'`. In the above example, this would be:
+`cljtest://myproject.test.sample/some-test` for example.
+
+You can create HTML of your asciidoc files like so:
+
+[source, shell]
+----
+$ boot go target
+----
+
+Which will place the produced html into `target` for your convenient opening.
+
+Included in the repo is a sample adoc file, which will be available like so:
+
+[source, shell]
+----
+$ ${BROWSER:firefox} target/README-SOURCE.html
+----
+
+Here's an image preview of what I am talking about:
+
+image::https://kek.gg/i/MgLJs.png[]
