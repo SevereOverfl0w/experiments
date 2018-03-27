@@ -7,7 +7,9 @@ require('asciidoctor-reveal.js');
 // var outputDir = path.join(process.cwd(), process.argv[3])
 
 function buildOne(file, outputDir) {
-  var attributes = {'revealjsdir': 'reveal.js'};
+  var attributes = {'revealjsdir': 'reveal.js',
+                    // Enable history, which is non-default, for during live-reload, so you don't lose your place
+                    'revealjs_history': true};
   var options = {safe: 'safe',
                  backend: 'revealjs',
                  attributes: attributes,
